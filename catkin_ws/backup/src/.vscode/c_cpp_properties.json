@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/park/Desktop/Link to catkin_ws/devel/include",
+                "/home/park/catkin_ws/devel/include",
+                "/opt/ros/kinetic/include",
+                "/usr/include"
+            ],
+            "name": "Linux",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}

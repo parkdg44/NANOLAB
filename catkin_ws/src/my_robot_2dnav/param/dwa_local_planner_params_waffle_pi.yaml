@@ -1,0 +1,92 @@
+DWAPlannerROS:
+# Robot Configuration Parameters (로봇 설정 파라미터)
+  max_vel_x: 0.50                         # x축 최대 속도 [m/s] 0.26
+  min_vel_x: -0.30                        # x축 최소 속도 [m/s] -0.26 0.50
+  max_vel_y: 0.0                        # 전 방향 로봇일때만 설정
+  min_vel_y: 0.0                        # 전 방향 로봇일때만 설정
+# The velocity when robot is moving in a straight line
+  max_trans_vel: 0.50                     # 최대 병진 속도   0.26
+  min_trans_vel: 0.13                  # 최소 병진 속도, 음수일 땐 후진  0.13 0.50
+  max_rot_vel: 3.2                     # 최대 회전속도 [rad/s]
+  min_rot_vel: 0.5                      # 최소 회전속도 [rad/s]
+  acc_lim_x: 2.5                        # x축 가속도 제한 [m/s^2]
+  acc_lim_y: 0.0                        # y축 가속도 제한 [m/s^2]
+  acc_lim_theta: 3.2                    # theta축 각가속도 제한 [m/s^2]
+# Goal Tolerance Parametes (목표지점 허용 오차)
+  xy_goal_tolerance: 0.10               # x, y 거리 목표지점 허용오차 [meter] 
+  yaw_goal_tolerance: 0.15              # yaw축 목표지점 허용오차 [rad]
+  latch_xy_goal_tolerance: false
+# Forward Simulation Parameters (전진방향 시뮬레이션 파라미터)
+  sim_time: 2.0                        # 전방향 시뮬레이션 궤적 시간
+  vx_samples: 20                       # x축 속도 공간에서 탐색하는 샘플 수
+  vy_samples: 0                        # y축 속도 공간에서 탐색하는 샘플 수
+  vth_samples: 30                      # theta 축 속도 공간에서 탐색하는 샘플 수
+  controller_frequency: 7.0           #
+# Trajectory Scoring Parameters (궤적 스코어링 파라미터, 궤적 평가)
+  path_distance_bias: 24.0             # 컨트롤러가 주어진 경로를 얼마나 따르는가에 대한 가중치
+  goal_distance_bias: 18.0             # 목표지점과 제어 속도에 근접한지에 대한 가중치
+  occdist_scale: 0.1                  # 장애물 회피에 대한 가중치
+  forward_point_distance: 0.25         # 로봇 중점과 추가 스코어링 포인트와의 거리 [m]
+  stop_time_buffer: 0.2                # 로봇이 충돌 전 정지에 필요한 시간 [sec]
+  scaling_speed:  0.25                 # 스케일링 속도 [m/s] 0.25   
+  max_scaling_factor: 0.2              # 최대 스케일링 요소
+# Oscillation Prevention Parameters  (진동 동작 방지 파라미터)
+  oscillation_reset_dist: 0.05         # Oscillation 플래그가 리셋되기 전에 로봇이 이동해야만 하는 거리
+# Debugging (디버깅)
+  publish_traj_pc : false               # 이동 궤적 디버깅 설정
+  publish_cost_grid_pc: false           # costmap 디버깅 설정
+
+
+# Robot Configuration Parameters
+# /acc_lim_x (double, default: 2.5)      The x acceleration limit of the robot in meters/sec^2
+# /acc_lim_y (double, default: 2.5)      The y acceleration limit of the robot in meters/sec^2
+# /acc_lim_th (double, default: 3.2)     The rotational acceleration limit of the robot in radians/sec^2
+# /max_trans_vel (double, default: 0.55) The absolute value of the maximum translational velocity for the robot in m/s
+# /min_trans_vel (double, default: 0.1)  The absolute value of the minimum translational velocity for the robot in m/s
+# /max_vel_x (double, default: 0.55)     The maximum x velocity for the robot in m/s.
+# /min_vel_x (double, default: 0.0)      The minimum x velocity for the robot in m/s, negative for backwards motion.
+# /max_vel_y (double, default: 0.1)      The maximum y velocity for the robot in m/s
+# /min_vel_y (double, default: -0.1)     The minimum y velocity for the robot in m/s
+# /max_rot_vel (double, default: 1.0)    The absolute value of the maximum rotational velocity for the robot in rad/s
+# /min_rot_vel (double, default: 0.4)    The absolute value of the minimum rotational velocity for the robot in rad/s
+
+# Goal Tolerance Parameters
+# /yaw_goal_tolerance (double, default: 0.05)       The tolerance in radians for the controller in yaw/rotation when achieving its goal
+# /xy_goal_tolerance (double, default: 0.10)        The tolerance in meters for the controller in the x & y distance when achieving a goal
+# /latch_xy_goal_tolerance (bool, default: false)   If goal tolerance is latched, if the robot ever reaches the goal xy location it will simply rotate in place, even if it ends up outside the goal tolerance while it is doing so.
+
+# Forward Simulation Parameters
+# /sim_time (double, default: 1.7)                  The amount of time to forward-simulate trajectories in seconds
+# /sim_granularity (double, default: 0.025)         The step size, in meters, to take between points on a given trajectory
+# /vx_samples (integer, default: 3)                 The number of samples to use when exploring the x velocity space
+# /vy_samples (integer, default: 10)                The number of samples to use when exploring the y velocity space
+# /vth_samples (integer, default: 20)               The number of samples to use when exploring the theta velocity space
+# /controller_frequency (double, default: 20.0)     The frequency at which this controller will be called in Hz. Uses searchParam to read the parameter from parent namespaces if not set in the namespace of the controller. For use with move_base, this means that you only need to set its "controller_frequency" parameter and can safely leave this one unset.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

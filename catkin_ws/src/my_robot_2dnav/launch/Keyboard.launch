@@ -1,0 +1,18 @@
+<launch>
+ <node name="Keyboard" pkg="test_mapping" type="teleop" output="screen" launch-prefix="terminator -x " /> 
+
+ <!--  <node name="cmd_vel" pkg="rostopic" type="rostopic" args= "/cmd_vel"> launch-prefix="terminator -x python"  launch-prefix="xterm -e"-->
+
+ <node pkg="rqt_graph" type="rqt_graph" name="rqt_graph"  output="screen"/>
+
+
+
+
+</launch>
+
+<!-- 
+
+gnome-terminal --command  : 기존 터미널
+
+
+-->

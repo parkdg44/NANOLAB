@@ -1,0 +1,39 @@
+<launch>
+<!-- Parameters-->
+  <arg name="Lidar_Port" default="/dev/ttyUSB0" />
+  <arg name="IMU_Port" default="/dev/ttyUSB1" />
+  <arg name="Arduino_Port" default="/dev/ttyACM0" />
+  <arg name="lidar_frame" default="/scan"/>
+  <arg name="robot_base_frame" default="/base_link"/>
+
+<!-- LIDAR  /dev/rplidar -> ttyUSB1 -->
+  <node name="RPLidar"          pkg="rplidar_ros" type="rplidarNode" output="screen"  >
+    <param name="serial_port"      type="string"     value="$(arg Lidar_Port)"/> 
+    <param name="serial_baudrate"  type="int"        value="115200"/>
+    <param name="frame_id"         type="string"     value="scan"/>
+    <param name="inverted"         type="bool"       value="false"/>
+    <param name="angle_compensate" type="bool"       value="true"/>
+  </node>
+
+<!-- Arduino  /dev/arduino -> ttyUSB2 -->
+  <node name="Arduino" pkg="rosserial_arduino" type="serial_node.py" output="screen" >
+    <param name="port" type="string" value="$(arg Arduino_Port)"/>
+    <param name="baud" type="string" value="115200"/>
+  </node>
+
+<!-- IMU /dev/imu -> ttyUSB0 -->
+  <node  name="IMU" pkg="my_robot_slam" type="get_imu">
+    <param name="IMU_PORT" type="string" value="$(arg IMU_Port)"  />
+  </node>
+
+  <node name="TF_Odom_Cal" pkg="my_robot_slam" type="raw_data_to_tf" />
+
+<!-- base_to_scan_broadcaster -->
+  <node name="TF_base_to_scan" pkg="tf" type="static_transform_publisher" 
+  args="0 0 0 3.1415 0 0 $(arg robot_base_frame) $(arg lidar_frame) 100" />
+
+<!-- Navigation Launcrosth File  launch-prefix="terminator -x" /> -->
+
+<include file="$(find my_robot_2dnav)/launch/scv_move_base.launch"/>
+ 
+</launch>

@@ -1,0 +1,27 @@
+TrajectoryPlannerROS:
+#TRAJECTORY CONTROL
+# differential_drive: true
+# max_acceleration: 0.5
+
+  max_vel_x: 0.45
+  min_vel_x: 0.25
+
+  max_vel_theta: 1.0
+  min_vel_theta: -1.0
+  min_in_place_vel_theta: 0.4
+
+  max_rotational_vel: 0.8
+
+  acc_lim_x: 2.5
+  acc_lim_y: 2.5
+  acc_lim_theta: 3.2
+
+
+  # Differential-drive robot configuration
+  holonomic_robot: false
+  dwa: true
+  # 에러현상 : Trajectory Rollout planner initialized with param meter_scoring not set. Set it to true to make your settins robust against changes of costmap resolution
+  meter_scoring: true 
+  # 에러현상 : Control loop missed its desired rate of 20.0000Hz... the loop actually took 0.0603 seconds
+  controller_frequency: 10.0
+

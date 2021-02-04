@@ -1,0 +1,46 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/seung/catkin_ws/devel/include",
+        "/opt/ros/kinetic/include",
+        "/home/seung/catkin_ws/src/navigation/base_local_planner/include",
+        "/home/seung/catkin_ws/src/navigation/carrot_planner/include",
+        "/home/seung/catkin_ws/src/navigation/amcl/include",
+        "/home/seung/catkin_ws/src/navigation/clear_costmap_recovery/include",
+        "/home/seung/catkin_ws/src/navigation/costmap_2d/include",
+        "/home/seung/catkin_ws/src/navigation/dwa_local_planner/include",
+        "/home/seung/catkin_ws/src/navigation/global_planner/include",
+        "/home/seung/catkin_ws/src/RPLidar_Hector_SLAM/hector_slam/hector_geotiff/include",
+        "/home/seung/catkin_ws/src/RPLidar_Hector_SLAM/hector_slam/hector_map_tools/include",
+        "/home/seung/catkin_ws/src/RPLidar_Hector_SLAM/hector_slam/hector_mapping/include",
+        "/home/seung/catkin_ws/src/RPLidar_Hector_SLAM/hector_slam/hector_marker_drawing/include",
+        "/home/seung/catkin_ws/src/navigation/map_server/include",
+        "/home/seung/catkin_ws/src/navigation/move_base/include",
+        "/home/seung/catkin_ws/src/navigation/move_slow_and_clear/include",
+        "/home/seung/catkin_ws/src/my_first_pkg/include",
+        "/home/seung/catkin_ws/src/myproject/include",
+        "/home/seung/catkin_ws/src/navigation/nav_core/include",
+        "/home/seung/catkin_ws/src/navigation/navfn/include",
+        "/home/seung/catkin_ws/src/openslam_gmapping/include",
+        "/home/seung/catkin_ws/src/navigation/robot_pose_ekf/include",
+        "/home/seung/catkin_ws/src/robot_setup_tf/include",
+        "/home/seung/catkin_ws/src/ros/core/roslib/include",
+        "/home/seung/catkin_ws/src/rosserial/rosserial_server/include",
+        "/home/seung/catkin_ws/src/rosserial/rosserial_test/include",
+        "/home/seung/catkin_ws/src/navigation/rotate_recovery/include",
+        "/home/seung/catkin_ws/src/serial/include",
+        "/home/seung/catkin_ws/src/velodyne/velodyne_driver/include",
+        "/home/seung/catkin_ws/src/velodyne/velodyne_laserscan/include",
+        "/home/seung/catkin_ws/src/velodyne/velodyne_pointcloud/include",
+        "/home/seung/catkin_ws/src/navigation/voxel_grid/include",
+        "/usr/include"
+      ],
+      "name": "Linux"
+    }
+  ]
+}

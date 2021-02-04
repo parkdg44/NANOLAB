@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/park/catkin_ws/devel/include",
+                "/opt/ros/kinetic/include",
+                "/home/park/catkin_ws/src/beginner_tutorials/include",
+                "/home/park/catkin_ws/src/turtlesim/include",
+                "/home/park/catkin_ws/src/test_mapping/include",
+                "/usr/include"
+            ],
+            "name": "Linux",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}

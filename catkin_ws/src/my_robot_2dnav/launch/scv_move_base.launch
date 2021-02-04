@@ -1,0 +1,68 @@
+<launch>
+  <master auto="start"/>
+
+  <!-- Run the map server -->
+  <arg name="map_file" default="/home/park/catkin_ws/map/frontier.yaml my_map_resolution" />
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>
+
+  <!-- Run AMCL   -->
+  <include file="$(find amcl)/examples/amcl_diff.launch"/>
+
+  <!-- Arguments -->
+  <!--
+<node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
+    <rosparam file="$(find my_robot_2dnav)/yaml/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+    <rosparam file="$(find my_robot_2dnav)/yaml/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find my_robot_2dnav)/yaml/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find my_robot_2dnav)/yaml/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find my_robot_2dnav)/yaml/base_local_planner_params.yaml" command="load" />
+</node> 
+  -->
+<!-- Keyboard Velocity-->
+  <node name="Keyboard" pkg="test_mapping" type="teleop" output="screen" launch-prefix="terminator -x" />
+<!-- move_base 
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    <rosparam file="$(find turtlebot3_navigation)/param/costmap_common_params_$(arg model).yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find turtlebot3_navigation)/param/costmap_common_params_$(arg model).yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find turtlebot3_navigation)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find turtlebot3_navigation)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find turtlebot3_navigation)/param/move_base_params.yaml" command="load" />
+    <rosparam file="$(find turtlebot3_navigation)/param/dwa_local_planner_params_$(arg model).yaml" command="load" />
+    <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
+    <remap from="odom" to="$(arg odom_topic)"/>
+    <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" />
+  </node>
+  -->
+
+  <arg name="model" default="waffle_pi" />
+  <arg name="cmd_vel_topic" default="/cmd_vel" />
+  <arg name="odom_topic" default="odom" />
+  <arg name="move_forward_only" default="false"/>
+  <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    <rosparam file="$(find my_robot_2dnav)/param/costmap_common_params_$(arg model).yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find my_robot_2dnav)/param/costmap_common_params_$(arg model).yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find my_robot_2dnav)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find my_robot_2dnav)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find my_robot_2dnav)/param/move_base_params.yaml" command="load" />
+    <rosparam file="$(find my_robot_2dnav)/param/dwa_local_planner_params_$(arg model).yaml" command="load" />
+    <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
+    <remap from="odom" to="$(arg odom_topic)"/>
+    <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" />
+  </node>
+
+<!-- rviz  -->
+<arg name="open_rviz" default="true"/>
+ <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find my_robot_2dnav)/rviz/navi.rviz"/> 
+    <!--<node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find my_robot_2dnav)/rviz/navi_basic.rviz"/> -->
+</group>
+
+<!-- RGT Graph --> 
+<!--
+<node pkg="rqt_graph" type="rqt_graph" name="rqt_graph" output="screen"/>
+<node pkg="rostopic" type="rostopic" name="cmd_velocity" args="echo -p /cmd_vel" output="screen" launch-prefix="terminator -x " />
+<node pkg="rostopic" type="rostopic" name="Dead_velocity" args="echo -p /dead_value" output="screen" launch-prefix="terminator -x " />
+-->
+</launch>
