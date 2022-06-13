@@ -7,3 +7,5 @@ Reaction Wheel Pendulum 개인 연구 자료입니다.
 ![그림2](/reaction_wheel/pictures/2.png)
 
 ![그림3](/reaction_wheel/pictures/3.png)
+
+![그림4](/reaction_wheel/pictures/result.gif)
